@@ -1,0 +1,57 @@
+/* Center the cards */
+.container {
+  text-align: center;
+}
+
+/* Movie poster image */
+.movie-img {
+  width: 260px !important;
+  height: 390px;
+  border-radius: 10px;
+  border: solid 3px white;
+
+}
+/* Movie card styling */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  width: 260px !important;
+  height: 485px;
+}
+.card-btn{
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.text-white{
+  color: white;
+}
+.similarMovie-img{
+  width: 92px !important;
+  height: 138px;
+  border-radius: 10px;
+  border: solid 3px white;
+
+}
+.similarMovie-img:hover{
+  border: solid 3px #0dcaf0;
+
+}
+.similar-card{
+  max-width: 250px;
+  margin: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: baseline;
+}

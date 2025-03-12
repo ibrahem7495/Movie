@@ -1,0 +1,56 @@
+<div class="bg-dark">
+  <div class="row">
+    <!-- movie image -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="movie-card ms-5">
+        <img
+          [src]="movieToWatch.medium_cover_image"
+          alt="Movie Poster"
+          class="img-fluid movie-img"
+        />
+        <div class="d-grid gap-2 mt-1">
+          <a class="btn btn-info btn-block">Watch Now</a>
+          <a class="btn btn-info btn-block">Watch Now</a>
+        </div>
+      </div>
+    </div>
+    <!-- movie title and details -->
+    <div class="container col-lg-3 col-md-6 d-none d-md-block">
+      <h1 class="d-lg-none text-start text-white">
+        {{ movieToWatch.title_english }}
+      </h1>
+
+      <h1 class="d-none d-lg-block text-start text-white">
+        {{ movieToWatch.title_long }}
+      </h1>
+      <p class="text-start text-white fp-1">{{ movieToWatch.year }}</p>
+      <p class="text-start text-white fp-1">{{ movieToWatch.genres }}</p>
+      <p class="text-start text-white fp-1">{{ movieToWatch.language }}</p>
+      <p class="text-start text-white fp-1">{{ movieToWatch.rating }}</p>
+    </div>
+    <!-- similar movies -->
+    <div class="d-none d-lg-flex similar-card col-3">
+      <h5 style="color: white; width: 100%; text-align: center">
+        Similar Movies
+      </h5>
+      <div *ngFor="let similarMovie of sugestionMovies">
+        <a routerLink="/watch/{{ similarMovie.id }}">
+          <img
+            [src]="similarMovie.medium_cover_image"
+            alt="Movie Poster"
+            class="img-fluid similarMovie-img  mb-3"
+          />
+        </a>
+      </div>
+    </div>
+    <div>
+      <!-- <iframe
+  width="560"
+  height="315"
+  [attr.src]="'https://www.youtube.com/watch?v=' + movieToWatch?.yt_trailer_code"
+  frameborder="0"
+  allowfullscreen>
+</iframe> -->
+    </div>
+  </div>
+</div>

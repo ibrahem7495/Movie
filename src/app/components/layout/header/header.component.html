@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+ <!-- Brand Logo with Small Image -->
+ <a class="navbar-brand d-flex align-items-center" href="#">
+  <img src=""
+       alt="Brand Logo" width="40" height="40" class="rounded-circle me-2">
+  <span>Movies </span>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+<!-- Search Bar -->
+
+
+<form class="d-flex" >
+  <!--  #search [(ngModel)]="searchText" انا عملت الاتنين عشان مش راضي يحس بالتغير الا كدا-->
+  <input class="form-control me-2" type="search" placeholder="Search" #search [(ngModel)]="searchText"  aria-label="Search">
+  <button class="btn btn-outline-success" type="button"      [routerLink]="['/browseMovies', search.value] ">Search</button>
+
+</form>
+
+
+ </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="browseMovies/">Browse Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

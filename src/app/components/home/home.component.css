@@ -1,0 +1,73 @@
+
+/* ................ chat gpt .............................................*/
+/* Center the cards */
+.container {
+  text-align: center;
+}
+
+/* Movie card styling */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  width: 216px !important;
+  height: 330px;
+}
+
+.movie-card:hover {
+  transform: scale(1.02);
+}
+
+/* Movie poster image */
+.movie-img {
+  width: 216px !important;
+  height: 260px;
+  border-radius: 10px;
+  border: solid 3px white;
+
+}
+
+
+/* Overlay effect */
+.movie-overlay {
+    width: 216px !important;
+
+  position: absolute;
+  height: 260px;
+  border-radius: 10px;
+  border: solid 3px #0dcaf0;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  /* padding: 10px; */
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show buttons on hover */
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Button styling */
+.movie-overlay a {
+  display: block;
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 5px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.text-white{
+  color: white;
+}
+
