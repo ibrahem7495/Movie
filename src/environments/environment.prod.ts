@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   APIURL : "https://yts.mx/api/v2"
 
 };
