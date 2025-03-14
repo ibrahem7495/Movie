@@ -55,3 +55,20 @@
         flex-direction: row;
         align-items: baseline;
 }
+.youtube-player iframe {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Optional: limit max size */
+}
+.video-frame {
+  height: 200px !important;
+}
+
+.tralier-image{
+  max-width: 100%;
+padding: 1px;
+  max-height: 200px;
+}
+.p-text-color{
+color: #919191;
+}

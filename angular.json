@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "../moviesApp/node_modules/font-awesome/css/font-awesome.min.css",
               "../moviesApp/node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],

@@ -58,7 +58,7 @@
 .movie-overlay a {
   display: block;
   position: absolute;
-
+width: 90%;
   bottom: 0;
   left: 0;
   right: 0;

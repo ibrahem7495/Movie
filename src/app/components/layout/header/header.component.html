@@ -2,7 +2,7 @@
   <div class="container">
  <!-- Brand Logo with Small Image -->
  <a class="navbar-brand d-flex align-items-center" href="#">
-  <img src=""
+  <img src="../../../../assets/img/780122-200.png"
        alt="Brand Logo" width="40" height="40" class="rounded-circle me-2">
   <span>Movies </span>
 </a>
@@ -19,7 +19,7 @@
 <form class="d-flex" >
   <!--  #search [(ngModel)]="searchText" انا عملت الاتنين عشان مش راضي يحس بالتغير الا كدا-->
   <input class="form-control me-2" type="search" placeholder="Search" #search [(ngModel)]="searchText"  aria-label="Search">
-  <button class="btn btn-outline-success" type="button"      [routerLink]="['/browseMovies', search.value] ">Search</button>
+  <button class="btn btn-outline-color" type="button"[routerLink]="['/browseMovies', search.value]" >Search</button>
 
 </form>
 <div></div>
@@ -27,10 +27,10 @@
 
  </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="browseMovies/">Browse Movies</a>
+          <a class="nav-link" routerLink="browseMovies/defolt">Browse Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" routerLink="/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>

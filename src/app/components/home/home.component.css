@@ -11,8 +11,10 @@
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
-  width: 216px !important;
-  height: 330px;
+    width: 100% !important;
+  height: auto;
+  /* max-height: 260px;
+  min-height: 110px; */
 }
 
 .movie-card:hover {
@@ -21,8 +23,9 @@
 
 /* Movie poster image */
 .movie-img {
-  width: 216px !important;
-  height: 260px;
+    width: 100% !important;
+
+  height: 100%;
   border-radius: 10px;
   border: solid 3px white;
 
@@ -31,13 +34,12 @@
 
 /* Overlay effect */
 .movie-overlay {
-    width: 216px !important;
+      width: 100% !important;
+height: 100%;
 
   position: absolute;
-  height: 260px;
   border-radius: 10px;
   border: solid 3px #0dcaf0;
-
   top: 0px;
   left: 0px;
   right: 0px;
@@ -58,13 +60,12 @@
 .movie-overlay a {
   display: block;
   position: absolute;
-
   bottom: 0;
   left: 0;
   right: 0;
   margin: 5px;
   padding: 10px;
-  font-weight: bold;
+  /* font-weight: bold; */
   border-radius: 5px;
 }
 .text-white{

@@ -1,4 +1,4 @@
-<div class="bg-dark">
+<div class="bg-dark text-white p-5">
   <div class="row">
     <!-- movie image -->
     <div class="col-lg-3 col-md-6 col-sm-12">
@@ -20,13 +20,13 @@
         {{ movieToWatch.title_english }}
       </h1>
 
-      <h1 class="d-none d-lg-block text-start text-white">
-        {{ movieToWatch.title_long }}
-      </h1>
+      <h2 class="d-none d-lg-block text-start text-white">
+        {{ movieToWatch.title_english}}
+      </h2>
       <p class="text-start text-white fp-1">{{ movieToWatch.year }}</p>
       <p class="text-start text-white fp-1">{{ movieToWatch.genres }}</p>
       <p class="text-start text-white fp-1">{{ movieToWatch.language }}</p>
-      <p class="text-start text-white fp-1">{{ movieToWatch.rating }}</p>
+      <p class="text-start text-white fp-1"><i class="fab fa-imdb"></i> {{ movieToWatch.rating }}</p>
     </div>
     <!-- similar movies -->
     <div class="d-none d-lg-flex similar-card col-3">
@@ -44,13 +44,31 @@
       </div>
     </div>
     <div>
-      <!-- <iframe
-  width="560"
-  height="315"
-  [attr.src]="'https://www.youtube.com/watch?v=' + movieToWatch?.yt_trailer_code"
-  frameborder="0"
-  allowfullscreen>
-</iframe> -->
+<!-- tralier -->
+      <div class=" row m-5" >
+        <!-- video -->
+      <div class="youtube-player p-0  col-lg-4 col-md-8 col-sm-12 ">
+        <iframe class="video-frame"
+          [src]="videoUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
     </div>
+    <!-- image  -->
+    <img class="img-fluid tralier-image d-none d-lg-block col-4 " [src]="movieToWatch.background_image_original" alt="movie background image">
+    <img class="img-fluid tralier-image d-none d-lg-block col-4" [src]="movieToWatch.large_cover_image" alt="movie background image">
+
+  </div>
+  <div class="row mt-5">
+    <div class="col-8" >
+      <h4>Plot summary</h4>
+      <p class="p-text-color">{{movieToWatch.description_full}}</p>
+    </div>
+    <div class="col-4" >
+      <h4>genres</h4>
+      <p *ngFor="let gener of movieToWatch.genres" class="p-text-color">{{gener}}</p>
+    </div>
+  </div>
   </div>
 </div>

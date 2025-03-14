@@ -17,16 +17,19 @@ this.activatedRoute.paramMap.subscribe({
   next:(paramMapvalue)=> {
      const quickSearchValue= paramMapvalue.get('quickSearch')
      console.log('quickSearchValue',quickSearchValue)
-if (quickSearchValue) {
-this.search(quickSearchValue)
-}else{
-   // get all mivies
-  this.apiService.getAllMovies().subscribe({
-    next:(getingValue)=>{this.allMovies=getingValue;
-      console.log(this.allMovies)
-    },
-    error:(err)=>{console.error(err)}
-  })}
+if (quickSearchValue =='defolt') {
+ // get all mivies
+ this.apiService.getAllMovies().subscribe({
+  next:(getingValue)=>{this.allMovies=getingValue;
+    console.log(this.allMovies)
+  },
+  error:(err)=>{console.error(err)}
+})
+
+}else if(quickSearchValue){
+  this.search(quickSearchValue)
+
+  }
   },
 
 })

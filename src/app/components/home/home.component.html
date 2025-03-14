@@ -3,29 +3,27 @@
 
 <div class="container ">
   <div  class="row justify-content-center">
-
-      <!-- Movie Card 1 -->
-       <!-- latest -->
-        <h3>Latest Movies</h3><hr>
-       <div *ngFor="let cardMovie of latestMovies" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+<!-- Movie Card 1 -->
+       <!-- top rating -->
+       <h3>Top Rating Movies</h3><hr>
+       <div *ngFor="let cardMovie of topRatingMvies" class="col-lg-3 col-md-4  col-6 mb-4">
         <div class="movie-card" >
-              <img [src]="cardMovie.medium_cover_image" alt="Movie Poster" class="img-fluid movie-img">
-              <div class="container">
-              <p class="text-white m-0 "> {{cardMovie.title}}</p>
-              <p class="text-white fp-1"> {{cardMovie.year}} </p>
-            </div>
-
-              <div class="movie-overlay">
+          <div class="movie-overlay">
                 <p class="mt-5">{{cardMovie.rating}}</p>
                 <p> {{ cardMovie.genres }} </p>
-                <a class="btn btn-primary" routerLink="/watch/{{cardMovie.id}}" > watch now</a>
+                <a class="btn btn-primary " routerLink="/watch/{{cardMovie.id}}" > watch now</a>
               </div>
+              <img [src]="cardMovie.medium_cover_image" alt="Movie Poster" class="img-fluid movie-img">
+          </div>
+          <div class="container">
+            <p class="text-white m-0 "> {{cardMovie.title}}</p>
+            <p class="text-white fp-1"> {{cardMovie.year}} </p>
           </div>
       </div>
       <!-- Movie Card 2 -->
-       <!-- top rating -->
-       <h3>Top Rating Movies</h3><hr>
-       <div *ngFor="let cardMovie of topRatingMvies" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+       <!--  Popular Downloads -->
+       <h3>Popular Downloads Movies</h3><hr>
+       <div *ngFor="let cardMovie of PopularMovies" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
         <div class="movie-card" >
               <img [src]="cardMovie.medium_cover_image" alt="Movie Poster" class="img-fluid movie-img">
               <div class="container">
@@ -41,9 +39,9 @@
           </div>
       </div>
       <!-- Movie Card 3 -->
-       <!--  Popular Downloads -->
-       <h3>Popular Downloads Movies</h3><hr>
-       <div *ngFor="let cardMovie of PopularMovies" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+       <!-- latest -->
+        <h3>Latest Movies</h3><hr>
+       <div *ngFor="let cardMovie of latestMovies" class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
         <div class="movie-card" >
               <img [src]="cardMovie.medium_cover_image" alt="Movie Poster" class="img-fluid movie-img">
               <div class="container">
@@ -58,6 +56,7 @@
               </div>
           </div>
       </div>
+
 
         <!-- show  all movies  -->
       <!-- <div *ngFor="let cardMovie of Movies" class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
