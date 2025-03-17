@@ -4,6 +4,7 @@
   <!-- <h3 class="mb-4 text-center">Search Movies</h3> -->
   <form class="bg-dark">
     <div class="row m-0">
+
       <!-- Search Term -->
       <div class="col-md-12">
         <label  for="searchTerm" class="form-label">Search Term:</label>
@@ -17,12 +18,13 @@
 
       <!-- Submit Button -->
       <div class="col-12 text-center">
-        <button type="button" class="btn btn-primary mt-3" (click)="search(searchTerm.value )">Search</button>
+        <button type="button" class="btn btn-primary mt-3" (click)="search(searchTerm.value,1 )">Search</button>
       </div>
     </div>
   </form>
 </div>
 <hr>
+
 <!-- show  movies  -->
 <div class="container ">
   <div  class="row justify-content-center m-0">
@@ -40,33 +42,15 @@
       <p class="text-white fp-1"> {{cardMovie.year}} </p>
     </div>
 </div>
-<!-- <div class="container ">
-  <div class="row justify-content-center">
-    <div *ngFor="let cardMovie of allMovies"
-      class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4"
-    >
-      <div class="movie-card">
-        <img
-          [src]="cardMovie.medium_cover_image"
-          alt="Movie Poster"
-          class="img-fluid movie-img"
-        />
-        <div class="container">
-          <p class="text-white m-0">{{ cardMovie.title }}</p>
-          <p class="text-white fp-1">{{ cardMovie.year }}</p>
-        </div>
 
-        <div class="movie-overlay">
-          <p class="mt-5">{{ cardMovie.rating }}</p>
-          <p>{{ cardMovie.genres }}</p>
-          <a class="btn btn-primary" routerLink="/watch/{{ cardMovie.id }}">
-            watch now</a
-          >
-        </div>
-      </div>
-    </div>
-  </div> -->
-<!-- </div> -->
 </div>
 </div>
+
+<!-- pagenation  -->
+<nav aria-label="Page navigation example m-0">
+  <ul class="pagination justify-content-center m-0 ">
+    <li *ngFor="let pageNum of pagesArray" class="page-item"><a class="page-link" type="button" (click)="search(searchTerm.value,pageNum)" >{{pageNum}}</a></li>
+
+  </ul>
+</nav>
 </div>

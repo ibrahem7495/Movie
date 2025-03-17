@@ -2,7 +2,7 @@
   <div class="container">
  <!-- Brand Logo with Small Image -->
  <a class="navbar-brand d-flex align-items-center" href="#">
-  <img src="../../../../assets/img/780122-200.png"
+  <img src="/assets/img/780122-200.png"
        alt="Brand Logo" width="40" height="40" class="rounded-circle me-2">
   <span>Movies </span>
 </a>
@@ -18,7 +18,7 @@
 
 <form class="d-flex" >
   <!--  #search [(ngModel)]="searchText" انا عملت الاتنين عشان مش راضي يحس بالتغير الا كدا-->
-  <input class="form-control me-2" type="search" placeholder="Search" #search [(ngModel)]="searchText"  aria-label="Search">
+  <input class="form-control me-2" name="searchText" type="search" placeholder="Search" #search [(ngModel)]="searchText"  aria-label="Search">
   <button class="btn btn-outline-color" type="button"[routerLink]="['/browseMovies', search.value]" >Search</button>
 
 </form>

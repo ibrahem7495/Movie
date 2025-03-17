@@ -1,7 +1,7 @@
 export interface Movie {
   background_image: string;
   background_image_original: string;
-  date_uploaded: string;
+  date_uploaded : string;
   date_uploaded_unix: number;
   description_full: string;
   genres: string[];
@@ -21,7 +21,7 @@ export interface Movie {
   title: string;
   title_english: string;
   title_long: string;
-  torrents: { url: string; quality: string; type: string }[]; // Adjust as needed
+  torrents ?: { url: string; quality: string; type: string }[]; // Adjust as needed
   url: string;
   year: number;
   yt_trailer_code: string;
