@@ -1,56 +1,118 @@
 <div class="bg-dark">
-<!-- Search  -->
-<div class="container ">
-  <!-- <h3 class="mb-4 text-center">Search Movies</h3> -->
-  <form class="bg-dark">
-    <div class="row m-0">
-
-      <!-- Search Term -->
-      <div class="col-md-12">
-        <label  for="searchTerm" class="form-label">Search Term:</label>
-        <input #searchTerm
-          type="text"
-          class="form-control"
-          id="searchTerm"
-          placeholder="Enter movie title..."
-        />
-      </div>
-
-      <!-- Submit Button -->
-      <div class="col-12 text-center">
-        <button type="button" class="btn btn-primary mt-3" (click)="search(searchTerm.value,1 )">Search</button>
-      </div>
-    </div>
-  </form>
-</div>
-<hr>
-
-<!-- show  movies  -->
-<div class="container ">
-  <div  class="row justify-content-center m-0">
-<div *ngFor="let cardMovie of allMovies" class="col-lg-3 col-md-4  col-6 mb-4">
-  <div class="movie-card" >
-    <div class="movie-overlay">
-          <p class="mt-5">{{cardMovie.rating}}</p>
-          <p> {{ cardMovie.genres }} </p>
-          <a class="btn btn-primary " routerLink="/watch/{{cardMovie.id}}" > watch now</a>
+  <!-- Search  -->
+  <div class="container">
+    <!-- <h3 class="mb-4 text-center">Search Movies</h3> -->
+    <form class="bg-dark">
+      <div class="row m-0">
+        <!-- Search Term -->
+        <div class="col-md-12">
+          <label for="searchTerm" class="form-label">Search Term:</label>
+          <input
+            #searchTerm
+            type="text"
+            class="form-control"
+            id="searchTerm"
+            placeholder="Enter movie title..."
+          />
         </div>
-        <img [src]="cardMovie.medium_cover_image" alt="Movie Poster" class="img-fluid movie-img">
+
+        <!-- Submit Button -->
+        <div class="col-12 text-center">
+          <button
+            type="button"
+            class="btn btn-primary mt-3"
+            (click)="search(searchTerm.value,1)"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr />
+
+  <!-- show  movies  -->
+  <div class="container">
+    <div class="row justify-content-center m-0">
+      <div
+        *ngFor="let cardMovie of allMovies"
+        class="col-lg-3 col-md-4 col-6 mb-4"
+      >
+        <div class="movie-card">
+          <div class="movie-overlay">
+            <p class="mt-5">{{ cardMovie.rating }}</p>
+            <p>{{ cardMovie.genres }}</p>
+            <a class="btn btn-primary" routerLink="/watch/{{ cardMovie.id }}">
+              watch now</a
+            >
+          </div>
+          <img
+            [src]="cardMovie.medium_cover_image"
+            alt="Movie Poster"
+            class="img-fluid movie-img"
+          />
+        </div>
+        <div class="container">
+          <p class="text-white m-0">{{ cardMovie.title }}</p>
+          <p class="text-white fp-1">{{ cardMovie.year }}</p>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <p class="text-white m-0 "> {{cardMovie.title}}</p>
-      <p class="text-white fp-1"> {{cardMovie.year}} </p>
-    </div>
-</div>
+  </div>
 
-</div>
-</div>
+  <!-- my pagenation  -->
+  <!--<nav *ngIf="numberOfPages>1" aria-label="Page navigation example m-0">
+    <ul class="pagination justify-content-center m-0">
+       <li  class="page-item">
+        <a
+          class="page-link"
+          type="button"
+          (click)="pagenation(currentPageNum-1,searchTerm.value)"
+          >{{ currentPageNum - 1 }}</a
+        >
+      </li>
+      <li *ngIf="currentPageNum + 1 > numberOfPages" class="page-item">
+        <a style="color: white;">...</a>
+      </li>
+      <li class="page-item">
+        <a
+          class="page-link"
+          type="button"
+          (click)="pagenation(currentPageNum,searchTerm.value)"
+          >{{ currentPageNum }}</a
+        >
+      </li>
+      <li *ngIf="currentPageNum + 1 < numberOfPages" class="page-item">
+        <a style="color: white;">...</a>
+      </li>
+      <li *ngIf="currentPageNum + 1 <= numberOfPages" class="page-item">
+        <a
+          class="page-link"
+          type="button"
+          (click)="pagenation(currentPageNum + 1 ,searchTerm.value)"
+          >{{ currentPageNum + 1 }}</a
+        >
+      </li>
 
-<!-- pagenation  -->
-<nav aria-label="Page navigation example m-0">
-  <ul class="pagination justify-content-center m-0 ">
-    <li *ngFor="let pageNum of pagesArray" class="page-item"><a class="page-link" type="button" (click)="search(searchTerm.value,pageNum)" >{{pageNum}}</a></li>
+    </ul>
+  </nav>-->
+  <!-- chat Pagination -->
+<nav *ngIf="this.pagesArray.length " aria-label="Movie Pagination ">
+  <ul class="pagination justify-content-center m-0">
+    <!-- Previous Button -->
+    <li class="page-item" [class.disabled]="currentPageNum === 1">
+      <a class="page-link pointer" (click)="changePage(currentPageNum - 1,searchTerm.value)">Previous</a>
+    </li>
 
+    <!-- Dynamic Page Numbers -->
+    <li *ngFor="let page of pagesArray" class="page-item" [class.active]="currentPageNum === page">
+      <a class="page-link pointer" (click)="changePage(page,searchTerm.value)">{{ page }}</a>
+    </li>
+
+    <!-- Next Button -->
+    <li class="page-item pointer" [class.disabled]="currentPageNum === numberOfPages">
+      <a class="page-link " (click)="changePage(currentPageNum + 1,searchTerm.value)">Next</a>
+    </li>
   </ul>
 </nav>
 </div>
