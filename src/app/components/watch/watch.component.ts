@@ -64,29 +64,35 @@ export class WatchComponent implements OnInit {
         const idValue = Number(paramMapData.get('wacthMovieId'));
 
         // main wacthibg movie
-        this.apiService.getMovieById(idValue).subscribe({
-          next: (movieDetal) => {
-            console.log(movieDetal);
-            this.movieToWatch = movieDetal;
-            console.log(' this.movieToWatch', this.movieToWatch);
-            // tralier YouTube video ID
-            const videoId = this.movieToWatch.yt_trailer_code; // video youtube ID
-            console.log('videoId', videoId);
-            this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-              `https://www.youtube.com/embed/${videoId}`
-            );
-          },
-          //
-        });
+        this.mainWachingMovie(idValue)
         // similar movie
-        this.apiService.getMovieSugstion(idValue).subscribe({
-          next: (sugestion) => {
-            console.log('sugestion', sugestion);
+        this.similarMovies(idValue)
+      },
+    });
+  }
+  mainWachingMovie(id:number){
+    this.apiService.getMovieById(id).subscribe({
+      next: (movieDetal) => {
+        console.log(movieDetal);
+        this.movieToWatch = movieDetal;
+        console.log(' this.movieToWatch', this.movieToWatch);
+        // tralier YouTube video ID
+        const videoId = this.movieToWatch.yt_trailer_code; // video youtube ID
+        console.log('videoId', videoId);
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://www.youtube.com/embed/${videoId}`
+        );
+      },
 
-            this.sugestionMovies = sugestion;
-            console.log('sugestionMovies', this.sugestionMovies);
-          },
-        });
+    });
+  }
+  similarMovies(id:number){
+    this.apiService.getMovieSugstion(id).subscribe({
+      next: (sugestion) => {
+        console.log('sugestion', sugestion);
+
+        this.sugestionMovies = sugestion;
+        console.log('sugestionMovies', this.sugestionMovies);
       },
     });
   }

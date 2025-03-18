@@ -25,28 +25,35 @@ export class HomeComponent implements OnInit {
     // })
 
     //get Latist Movies
-    this.apiService.getLatistMovies().subscribe({
-      next:(getValue)=>{
-      this.latestMovies=getValue;
-      }
-    })
+this.latistMovies();
      //get top rating Movies
-     this.apiService.getTopRatingMovies().subscribe({
-      next:(getValue)=>{
-      this.topRatingMvies=getValue;
-      }
-    })
+this.topRatingMovies();
       //get Popular Downloads Movies
-    this.apiService.getPopularMovies().subscribe({
-     next:(getValue)=>{
-     this.PopularMovies=getValue;
-     }
-   })
-
+this.PopularDownloadsMovies();
   }
-//تم استبدالها ب روتر لينك عادي
-  //   goWacth(movieId:number){
-// this.router.navigate(["/watch",movieId])
-//   }
+  
+latistMovies(){
+this.apiService.getLatistMovies().subscribe({
+  next:(getValue)=>{
+  this.latestMovies=getValue;
+  }
+})
+}
+  topRatingMovies(){
+     this.apiService.getTopRatingMovies().subscribe({
+  next:(getValue)=>{
+  this.topRatingMvies=getValue;
+  }
+})
+  }
+
+  PopularDownloadsMovies(){
+    this.apiService.getPopularMovies().subscribe({
+ next:(getValue)=>{
+ this.PopularMovies=getValue;
+ }
+})
+  }
+
 
 }
